@@ -283,7 +283,8 @@ class TransferController extends Controller
                 'to_account_id' => $request->toaccount,
                 'amount' => $request->amount,
                 'created_by' => Auth::user()['userid'],
-                'created_at' => date('Y-m-d H:i:s')
+                'created_at' => date('Y-m-d H:i:s'),
+				'description' => $request->description
             ]);
             
             // Update balance of 'from' account

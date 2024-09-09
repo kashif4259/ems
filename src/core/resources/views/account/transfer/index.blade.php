@@ -91,6 +91,12 @@
 					@endforeach
 				  </select>
                 </div>
+
+				<div class="form-group">
+                  <label><small class="req text-danger"> </small>Description</label>
+				  <input type="text" id="description" name="description" class="form-control" />
+                </div>
+
               </div>
               <div class="modal-footer">
 								<button type="button" class="btn btn-sm btn-fill" data-dismiss="modal"><?php echo trans('lang.close');?></button>
@@ -174,11 +180,12 @@ $(document).ready(function() {
 				var amount 			= $("#amount").val();
 				var fromaccount = $("#fromaccount").val();
 				var toaccount = $("#toaccount").val();
-				
+				var description = $("#description").val();
+
 				$.ajax({
 					type: "POST",
 		            url: "{{ url('internaltransfer/save')}}",
-		            data: {amount:amount,fromaccount:fromaccount,toaccount:toaccount},
+		            data: {amount:amount,fromaccount:fromaccount,toaccount:toaccount,description:description},
 		            dataType: "JSON",
 		            success: function(data) {
 									$("#message2").css({'display':"block"});

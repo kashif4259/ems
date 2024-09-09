@@ -246,11 +246,10 @@ class IncomeTransactionController extends Controller
 				$path = 'upload/income/';
 				if($accountsingle->file!=''){
 					return '<a  href='.$path.$accountsingle->file.' id="btndownload" class="text-warning" download><i data-toggle="tooltip" data-placement="top" title='. trans('lang.receipt').' class="ti-download"></i> </a>&nbsp;&nbsp;
-				<a  href="#" id="btnedit" customdata='.$accountsingle->transactionid.' class="text-blue-sky" data-toggle="modal" data-target="#edit"><i data-toggle="tooltip" data-placement="top" title='. trans('lang.edit').' class="ti-pencil"></i></a>&nbsp;&nbsp;
+				
 				<a  href="#" id="btndelete" customdata='.$accountsingle->transactionid.' class="text-danger" data-toggle="modal" data-target="#delete"><i data-toggle="tooltip" data-placement="top" title='. trans('lang.delete').' class="ti-close"></i> </a>';
 				}else{
-					return '<a  href="#" id="btnedit" customdata='.$accountsingle->transactionid.' class="text-blue-sky" data-toggle="modal" data-target="#edit"><i data-toggle="tooltip" data-placement="top" title='. trans('lang.edit').' class="ti-pencil"></i></a>&nbsp;&nbsp;
-				<a href="#" id="btndelete" customdata='.$accountsingle->transactionid.' class="text-danger" data-toggle="modal" data-target="#delete"><i data-toggle="tooltip" data-placement="top" title='. trans('lang.delete').' class="ti-close"></i></a>';
+					return '<a href="#" id="btndelete" customdata='.$accountsingle->transactionid.' class="text-danger" data-toggle="modal" data-target="#delete"><i data-toggle="tooltip" data-placement="top" title='. trans('lang.delete').' class="ti-close"></i></a>';
 
 				}
 			})->make(true);
@@ -399,7 +398,7 @@ class IncomeTransactionController extends Controller
 		$incomecategory   = $request->input('incomecategory');
 		$incomesubcategory   = $request->input('incomesubcategory');
 		$incomenote    = $request->input('incomenote');
-		$incomedate    = $request->input('incomedate');
+		$incomedate    = date('Y-m-d'); //$request->input('incomedate');
 		$incomefile    = $request->file('incomefile');
 		$userid = Auth::user()->userid;
 		//enabled extension=php_fileinfo.dll for mimes

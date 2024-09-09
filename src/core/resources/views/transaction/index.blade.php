@@ -42,7 +42,7 @@
 									<label for="date" class="control-label"> 
 									<small class="req text-danger">* </small><?php echo trans('lang.date');?></label>
 									<div  class="input-group date" data-date-format="mm-dd-yyyy">
-										<input id="idate" class="form-control" required type="text" value="<?php echo date("Y-m-d");?>"/>
+										<input id="idate" class="form-control" required type="text" value="<?php echo date("Y-m-d");?>" disabled/>
 										<span class="input-group-addon" style="border: 1px solid #cecece;"><i class="fa fa-calendar"></i></span>
 									</div>
 								</div>
@@ -135,7 +135,7 @@
 									<label for="date" class="control-label"> 
 									<small class="req text-danger">* </small><?php echo trans('lang.date');?></label>
 									<div  class="input-group date" data-date-format="mm-dd-yyyy">
-										<input id="edate" class="form-control" required name="edate" type="text" value="<?php echo date("Y-m-d");?>"/>
+										<input id="edate" class="form-control" required name="edate" type="text" value="<?php echo date("Y-m-d");?>" disabled/>
 										<span class="input-group-addon" style="border: 1px solid #cecece;"><i class="fa fa-calendar"></i></span>
 									</div>
 								</div>

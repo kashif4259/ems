@@ -226,11 +226,10 @@ class ExpenseTransactionController extends Controller
 			$path = 'upload/expense/';
 			if($accountsingle->file!=''){
 					return '<a  href='.$path.$accountsingle->file.' id="btndownload" class="text-warning" download><i data-toggle="tooltip" data-placement="top" title='. trans('lang.receipt').' class="ti-download"></i> </a>&nbsp;&nbsp;
-				<a  href="#" id="btnedit" customdata='.$accountsingle->transactionid.' class="text-blue-sky" data-toggle="modal" data-target="#edit"><i data-toggle="tooltip" data-placement="top" title='. trans('lang.edit').' class="ti-pencil"></i></a>&nbsp;&nbsp;
+				
 				<a  href="#" id="btndelete" customdata='.$accountsingle->transactionid.' class="text-danger" data-toggle="modal" data-target="#delete"><i data-toggle="tooltip" data-placement="top" title='. trans('lang.delete').' class="ti-close"></i> </a>';
 				}else{
-					return '<a  href="#" id="btnedit" customdata='.$accountsingle->transactionid.' class="text-blue-sky" data-toggle="modal" data-target="#edit"><i data-toggle="tooltip" data-placement="top" title='. trans('lang.edit').' class="ti-pencil"></i></a>&nbsp;&nbsp;
-				<a href="#" id="btndelete" customdata='.$accountsingle->transactionid.' class="text-danger" data-toggle="modal" data-target="#delete"><i data-toggle="tooltip" data-placement="top" title='. trans('lang.delete').' class="ti-close"></i></a>';
+					return '<a href="#" id="btndelete" customdata='.$accountsingle->transactionid.' class="text-danger" data-toggle="modal" data-target="#delete"><i data-toggle="tooltip" data-placement="top" title='. trans('lang.delete').' class="ti-close"></i></a>';
 
 				}
             })->make(true);
@@ -382,7 +381,7 @@ class ExpenseTransactionController extends Controller
 		$expensecategory 		= $request->input('expensecategory');
 		$expensesubcategory 	= $request->input('expensesubcategory');
 		$expensenote 			= $request->input('expensenote');
-		$expensedate 			= $request->input('expensedate');
+		$expensedate 			= date('Y-m-d'); //$request->input('expensedate');
 		$expensefile 			= $request->file('expensefile');
 		$userid = Auth::user()->userid;
 		$message = ['expensefile.mimes'=>trans('lang.upload_transaction')];
