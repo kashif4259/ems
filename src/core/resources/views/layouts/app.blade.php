@@ -551,7 +551,7 @@
     <div class="container-fluid">
         
         <div class="copyright pull-right">
-            © 2023, made with <i class="fa fa-heart heart"></i> by <span class="company"></span></a>
+            © <?php echo date('Y'); ?>, made with <i class="fa fa-heart heart"></i> by <span class="company"></span></a>
         </div>
     </div>
 </footer>

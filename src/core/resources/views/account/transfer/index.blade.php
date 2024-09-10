@@ -35,8 +35,9 @@
 									<th>From Account</th>
 									<th>To Account</th>
 									<th>Amount</th>
-									<th>Transer Date</th>
-                                    <th>Transer By</th>
+									<th>Transfer Date</th>
+                                    <th>Transfer By</th>
+									<th>Description</th>
 								</tr>
 							</thead>
 							
@@ -124,8 +125,9 @@ $(document).ready(function() {
 						{ data: 'fromaccount'},
 						{ data: 'toaccount'},
 						{data: 'amount'},
+						{ data: 'transferdate'},
 						{ data: 'transferby'},
-						{ data: 'transferdate'}
+						{ data: 'description'}
 					],
 			buttons: [
 				{
@@ -134,7 +136,7 @@ $(document).ready(function() {
 					title: 'Internal Transfer List',
 					className: 'btn btn-sm btn-fill ',
 					exportOptions: {
-						columns: [ 1, 2, 3 ]
+						columns: [ 1, 2, 3, 4, 5, 6 ]
 					}
 				}, 
 				{
@@ -143,7 +145,7 @@ $(document).ready(function() {
 					title: 'Internal Transfer List',
 					className: 'btn btn-sm btn-fill ',
 					exportOptions: {
-						columns: [  1, 2, 3 ]
+						columns: [ 1, 2, 3, 4, 5, 6 ]
 					}
 				},
 				{
@@ -153,7 +155,7 @@ $(document).ready(function() {
 					orientation:'landscape',
 					className: 'btn btn-sm btn-fill ',
 					exportOptions: {
-						columns: [  1, 2, 3 ]
+						columns: [ 1, 2, 3, 4, 5, 6 ]
 					},
 					customize : function(doc){
 						doc.styles.tableHeader.alignment = 'left';
@@ -166,7 +168,7 @@ $(document).ready(function() {
 					text:   'Print ',
 					className: 'btn btn-sm btn-fill ',
 					exportOptions: {
-						columns: [ 1, 2, 3 ]
+						columns: [ 1, 2, 3, 4, 5, 6 ]
 					}
 				}
 			]

@@ -62,7 +62,7 @@ class TransferController extends Controller
 			->join('account as af', 'af.accountid', '=', 'transfers.from_account_id')
             ->join('account as at', 'at.accountid', '=', 'transfers.to_account_id')
             ->join('users', 'users.userid', '=', 'transfers.created_by')
-            ->select('transfers.id as transferid','af.name as fromaccount', 'at.name as toaccount','transfers.amount','users.name as transferby', 'transfers.created_at as transferdate')
+            ->select('transfers.id as transferid','af.name as fromaccount', 'at.name as toaccount','transfers.amount','users.name as transferby', 'transfers.created_at as transferdate', 'transfers.description as description')
 			->get();
         
 		return Datatables::of( $transfers )
@@ -73,7 +73,11 @@ class TransferController extends Controller
         ->addColumn('transferdate',function($single){
             $setting = DB::table('settings')->where('settingsid','1')->get();
             return date($setting[0]->dateformat,strtotime($single->transferdate));
-        })->make( true );
+        })
+		->addColumn('description',function($single){
+            return (!empty($single->description) ? $single->description : '-') ;
+        })
+		->make( true );
 	}
 
 	/**
